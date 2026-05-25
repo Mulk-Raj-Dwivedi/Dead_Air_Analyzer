@@ -1,0 +1,61 @@
+# ============================================================================
+# Dead Air Analyzer Configuration
+# ============================================================================
+# This configuration file controls the behavior of the Dead Air Analyzer tool.
+# Modify the values below to customize silence detection parameters.
+# ============================================================================
+
+# ----------------------------------------------------------------------------
+# SILENCE DETECTION PARAMETERS
+# ----------------------------------------------------------------------------
+
+# Minimum duration (in seconds) for a silent segment to be counted as "dead air"
+# Segments shorter than this threshold will be ignored
+# Default: 5.0 seconds
+min_silence_duration: 3.0
+
+# Duration (in seconds) to ignore at the START of each audio file
+# This helps filter out initial connection silence, pre-call silence, etc.
+# Default: 2.0 seconds
+ignore_start_duration: 2.0
+
+# Duration (in seconds) to ignore at the END of each audio file
+# This helps filter out call termination silence, post-call silence, etc.
+# Default: 2.0 seconds
+ignore_end_duration: 2.0
+
+# ----------------------------------------------------------------------------
+# ADVANCED DETECTION PARAMETERS
+# ----------------------------------------------------------------------------
+
+# RMS Percentile threshold for adaptive silence detection
+# Lower values = more sensitive (detects quieter sounds as silence)
+# Higher values = less sensitive (only very quiet sounds are silence)
+# Recommended range: 10-25
+# Default: 15
+rms_percentile: 10
+
+# ----------------------------------------------------------------------------
+# INPUT/OUTPUT SETTINGS
+# ----------------------------------------------------------------------------
+
+# Default input folder containing audio files to analyze
+# Can be overridden via command line argument (-i or --input)
+default_input_folder: "audio_files"
+
+# Default output CSV file name (when export is enabled)
+# Can be overridden via command line argument (--export)
+default_export_filename: "dead_air_results.csv"
+
+# ----------------------------------------------------------------------------
+# SUPPORTED AUDIO FORMATS
+# ----------------------------------------------------------------------------
+# List of supported audio file extensions (do not modify unless necessary)
+supported_formats:
+  - ".wav"
+  - ".mp3"
+  - ".flac"
+  - ".ogg"
+  - ".m4a"
+  - ".aac"
+
